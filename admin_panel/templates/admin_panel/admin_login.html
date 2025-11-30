@@ -1,0 +1,52 @@
+{% extends 'admin_panel/auth_base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block auth_content %}
+<h1>Admin Login</h1>
+<p class="account-subtitle">Access to our dashboard</p>
+
+<!-- Form -->
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+            {{ field }}
+            {% for error in field.errors %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <div class="form-group">
+        <button class="btn btn-primary btn-block" type="submit">Login</button>
+    </div>
+</form>
+<!-- /Form -->
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show mt-3" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="text-center forgotpass"><a href="#">Forgot Password?</a></div>
+<div class="login-or">
+    <span class="or-line"></span>
+    <span class="span-or">or</span>
+</div>
+
+<!-- Social Login -->
+<!-- <div class="social-login">
+    <span>Login with</span>
+    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a><a href="#" class="google"><i class="fa fa-google"></i></a>
+</div> -->
+<!-- /Social Login -->
+
+<div class="text-center dont-have">Don’t have an account? <a href="{% url 'register' %}">Register</a></div>
+{% endblock %}

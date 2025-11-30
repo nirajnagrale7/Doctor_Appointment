@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.o
+*.so
+*.egg
+*.egg-info/
+.Python
+build/
+dist/
+venv/
+.venv/
+env/
+.env/
+*.ipynb
+.pytest_cache/
+
+# Django
+*.log
+*.sqlite3
+db.sqlite3
+/media
+/static
+.DS_Store
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.bak
+*~
+.editorconfig
+.project
+.pydevproject
+
+# Operating System files
+.DS_Store
+.Trash/
+*.sublime-project
+*.sublime-workspace

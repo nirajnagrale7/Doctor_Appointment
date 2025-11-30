@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Doccure - {% block title %}{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!--[if lt IE 9]>
+        <script src="{% static 'js/html5shiv.min.js' %}"></script>
+        <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper login-body">
+        <div class="login-wrapper">
+            <div class="container">
+                <div class="loginbox">
+                    <div class="login-left">
+                        <img class="img-fluid" src="{% static 'img/logo-white.png' %}" alt="Logo">
+                    </div>
+                    <div class="login-right">
+                        <div class="login-right-wrap">
+                            {% block auth_content %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    
+    <!-- Bootstrap Core JS -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <!-- Custom JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var alerts = document.querySelectorAll('.alert');
+            alerts.forEach(function(alert) {
+                setTimeout(function() {
+                    alert.style.display = 'none';
+                }, 10000);
+            });
+        });
+    </script>
+    
+</body>
+</html>
